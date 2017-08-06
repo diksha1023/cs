@@ -3,9 +3,13 @@
 
 require('db.php');
 
-$name = trim($_POST['name']);
-$name = strip_tags($name);
-$name = htmlspecialchars($name);
+$fname = trim($_POST['fname']);
+$fname = strip_tags($fname);
+$fname = htmlspecialchars($fname);
+
+$lname = trim($_POST['lname']);
+$lname = strip_tags($lname);
+$lname = htmlspecialchars($lname);
 
 $email = trim($_POST['emailid']);
 $email = strip_tags($email);
@@ -21,18 +25,31 @@ $password_conf = htmlspecialchars($password_conf);
 
 $error = false;
 
-if(empty($name)){
+if(empty($fname)){
 	$error = true;
 	$error_msg =  "Please Enter your name";
 }
-else if (strlen($name) < 3 || strlen($name) > 20){
+else if (strlen($fname) < 3 || strlen($fname) > 20){
+		$error = true;
+		$error_msg = "First Name must have atleast 3 and atmost 20 chars.";
+	} 
+else if (!preg_match("/^[a-zA-Z ]+$/",$fname)) {
+	 $error = true;
+	 $error_msg = "Last Name must contain alphabets and space.";
+}
+
+if(empty($lname)){
+	$error = true;
+	$error_msg =  "Please Enter your name";
+}
+else if (strlen($lname) < 3 || strlen($lname) > 20){
 		$error = true;
 		$error_msg = "Name must have atleast 3 and atmost 20 chars.";
 	} 
-	else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-		 $error = true;
-		 $error_msg = "Name must contain alphabets and space.";
-	}
+else if (!preg_match("/^[a-zA-Z ]+$/",$lname)) {
+	 $error = true;
+	 $error_msg = "Name must contain alphabets and space.";
+}
 
 
 if(empty($email)){
@@ -66,7 +83,7 @@ else {
 	$hash = md5(rand(0,1000));
 	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 	$pass = hash('sha256',$password);
-	$query = "INSERT into `users-test` (name,email,password,uniqueid,hash) VALUES ('$name','$email','$pass','$random','$hash')";
+	$query = "INSERT into `users-test` (fname,lname,email,password,uniqueid,hash) VALUES ('$fname','$lname','$email','$pass','$random','$hash')";
 	$result = mysqli_query($con,$query);
 	if($result){
 		echo "Registered successfully";

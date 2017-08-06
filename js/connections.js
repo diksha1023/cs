@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  alert("Chick");
-
   $("#registerForm").submit(function(e) {
     e.preventDefault();
     var data = $("#registerForm").serialize();
@@ -22,7 +20,7 @@ $(document).ready(function(){
       success: function(message) {
         // Success message
         $('#register_submit').html(message);
-        alert(message);
+        
       },
       error: function() {
         $('#register_submit').html("Error");
