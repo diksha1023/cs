@@ -1,0 +1,61 @@
+.my-body {
+                background-image: url('../images/index_back.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                font-family: 'Open Sans Condensed', sans-serif;
+}
+.navbar-fixed-top { 
+        background-color: rgba(0,0,0,0.5);
+        transition: background-color 1s ease 0s;
+}
+.navbar-fixed-top.opaque { 
+        background-color: rgba(0,0,0,1);
+        transition: background-color 1s ease 0s;
+}
+.navlink{
+        color:white;
+        }
+.brnd {
+	color:white; font-size:35px; font-family: 'Open Sans Condensed', sans-serif;
+}
+.smallnav{
+	font-family: 'Open Sans Condensed', sans-serif; font-size:20px;
+}
+.my-panel {
+    box-shadow:-4px -5px 20px 10px lightpink;  
+    background-color:#00000c;
+    opacity:0.8;
+}
+.myForm {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+input[type=text], input[type=Email], input[type=Password] {
+    color:black;
+    font-family: Arial !important;
+    font-weight: bolder;
+    -webkit-transition: 0.5s;
+    transition: 0.3s;
+    outline: none;
+}
+.input-group-addon {
+                background-color:lightseagreen;
+                color : blueviolet;
+}
+input[type=text]:focus {
+    border: 3px solid green;
+}
+input[type=Email]:focus {
+    border: 3px solid green;
+}
+input[type=Password]:focus {
+    border: 3px solid green;
+}
+.heading {
+    color:white;
+    font-weight: bold !important;
+    font-size: 40px !important;
+}
+        
