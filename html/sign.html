@@ -21,7 +21,7 @@
     
 
 
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
            
             function validateForm() {
     var x = document.forms["myForm"]["username"].value;
@@ -32,7 +32,7 @@
     }
 }
 
-        </script>
+        </script> -->
 
     </head>
     <body class="my-body" >
@@ -77,26 +77,26 @@
                     <div class="panel-body">
                         <div class="text-center heading"><h2>Sign Up</h2></div>
                         <div class="divider"><hr></div>
-                        <form method="POST" onsubmit="return validateForm()" class="myForm">
+                        <form id="registerForm" method="POST" action="../register2.php" class="myForm">
                         <div class="form-group">
                             <label for="fname">Firstname</label>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input type="text" id="fname" name="firstname" class="form-control" placeholder="Enter firstname..." required>
+                                    <input type="text" id="fname" name="name" class="form-control" placeholder="Enter firstname..." required>
                                 </div>
                         </div> 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="lname">Lastname</label>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
                                     <input type="text" id="lname" name="lastname" class="form-control" placeholder="Enter lastname..." >
                                 </div>
-                        </div>                                                   
+                        </div>       -->                                            
                         <div class="form-group">
                             <label for="uname">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input type="email" id="email id" name="email id" class="form-control" placeholder="Enter email-ID..." required>
+                                    <input type="email" id="email id" name="emailid" class="form-control" placeholder="Enter email-ID..." required>
                                 </div>
                         </div>
                         <div class="form-group">
@@ -114,7 +114,7 @@
                                 </div>
                         </div>
                        
-                        <button type="submit" class="btn btn-primary btn-md" style="float:right;">Sign Up<span class="glyphicon glyphicon-send"></span></button>
+                        <button id="register_submit" type="submit" name="register_submit" class="btn btn-primary btn-md" style="float:right;">Sign Up<span class="glyphicon glyphicon-send"></span></button>
                         </div>
                         </form>
                        
@@ -155,7 +155,9 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>        
+    <script src="js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="../js/connections.js"></script>  
+        
 
     </body>
 </html>
