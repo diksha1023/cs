@@ -14,11 +14,11 @@ $password = htmlspecialchars($password);
 
 if(empty($email)){
 	$error = true;
-	$error_msg =  "Please Enter the email address";
+	echo "Please Enter the email address";
 }
 elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)){
 	$error = true;
-	$error_msg = "Please enter a valid email";
+	echo "Please enter a valid email";
 }
 else {
 	$query = "SELECT password,verify from `users-test` WHERE email='".$email."'";
@@ -26,7 +26,13 @@ else {
 	$row = mysqli_fetch_row($result);
 	mysqli_close($con);
 	if( hash('sha256',$password) == $row[0]){
-		echo "Nice";
+		echo "Success";
+		$_SESSION['u']=$_POST['username'];
+		$_SESSION['p']=md5($password);
+		exit; 
+	}
+	else {
+		echo "Password is wrong";
 	}
 }	
 
