@@ -6,7 +6,7 @@
 	<form action="login2.php" method="POST">
 		<p>
 			Email: 
-			<input type="text" name="emailid">
+			<input type="text" name="username">
 		</p>
 		<p>
 			Password: 
