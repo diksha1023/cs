@@ -58,4 +58,9 @@ input[type=Password]:focus {
     font-weight: bold !important;
     font-size: 40px !important;
 }
+.message {
+    color: white;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
         
