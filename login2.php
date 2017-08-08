@@ -31,9 +31,9 @@ else {
 			exit;
 		}
 		else {
-			echo "Success";
 			$_SESSION['u']=$_POST['username'];
 			$_SESSION['p']=md5($password);
+			echo "Success";			
 			exit; 			
 		}
 	}

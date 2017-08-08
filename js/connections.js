@@ -47,7 +47,8 @@ $(document).ready(function(){
         $('#response_msg').html(message);
         if( message == "Success"){
           console.log("Bichl");
-          window.location.replace("/login_success.php");
+          //alert("Hello");
+          window.location.replace("/profile.php");
         }
         
         

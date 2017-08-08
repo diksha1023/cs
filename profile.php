@@ -9,7 +9,7 @@ if (session_id() == '' || !isset($_SESSION['u']) || !isset($_SESSION['p'])) { //
 else {
 
 	require('db.php');
-	$query = "SELECT email from `users-test` WHERE email='".$email."'";
+	$query = "SELECT fname,lname,email from `users-test` WHERE email='".$_SESSION['u']."'";
 	$result = mysqli_query($con,$query);
 	$row = mysqli_fetch_row($result);	
 
@@ -70,7 +70,7 @@ else {
 
                            
                 <li class="dropdown pull-right">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NAME  <img src="images/default.jpg" style="width:25px; height:25px; border-radius:100%; "/><span class="caret"></span></a>
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $row[0]." ".$row[1]; ?><img src="images/default.jpg" style="width:25px; height:25px; border-radius:100%; "/><span class="caret"></span></a>
 				  <ul class="dropdown-menu ">
 					<li><a href="#">My Profile</a></li>
 					<li><a href="#"><a href="logout.php">Logout</a></a></li>
@@ -103,8 +103,8 @@ else {
 						<div class="col-md-2">
 							<img src="images/default.jpg" style="width:120px; height:120px;border-radius:20%;"/>						</div>
 						<div class="col-md-6">
-							<div style="font-family: 'Open Sans Condensed', sans-serif; font-size:50px; color:white;">NAME</div>							
-                            <div style="font-family: 'Open Sans Condensed', sans-serif; font-size:20px; color:white; font-weight:bold;">E-mail</div>						
+							<div style="font-family: 'Open Sans Condensed', sans-serif; font-size:50px; color:white;"><?php echo $row[0]." ".$row[1]; ?></div>							
+                            <div style="font-family: 'Open Sans Condensed', sans-serif; font-size:20px; color:white; font-weight:bold;"><?php echo $row[2]; ?></div>						
                             <div style="font-family: 'Open Sans Condensed', sans-serif; font-size:20px;color:#1d58d6;">Loyalty Points : 0</div>							
 							
 						</div>
