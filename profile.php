@@ -1,3 +1,20 @@
+<?php
+
+session_start(); //gets session id from cookies, or prepa
+
+if (session_id() == '' || !isset($_SESSION['u']) || !isset($_SESSION['p'])) { //if sid exists and login for sid exists
+	header('Location: /');
+}
+  
+else {
+
+	require('db.php');
+	$query = "SELECT email from `users-test` WHERE email='".$email."'";
+	$result = mysqli_query($con,$query);
+	$row = mysqli_fetch_row($result);	
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,7 +70,7 @@
 
                            
                 <li class="dropdown pull-right">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NAME  <img src="" style="width:25px; height:25px; border-radius:100%; "/><span class="caret"></span></a>
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NAME  <img src="images/default.jpg" style="width:25px; height:25px; border-radius:100%; "/><span class="caret"></span></a>
 				  <ul class="dropdown-menu ">
 					<li><a href="#">My Profile</a></li>
 					<li><a href="#"><a href="logout.php">Logout</a></a></li>
@@ -84,7 +101,7 @@
 				
 					<div class="row" style="margin-top:30px; margin-left:30px;">
 						<div class="col-md-2">
-							<img src="" style="width:120px; height:120px;border-radius:20%;"/>						</div>
+							<img src="images/default.jpg" style="width:120px; height:120px;border-radius:20%;"/>						</div>
 						<div class="col-md-6">
 							<div style="font-family: 'Open Sans Condensed', sans-serif; font-size:50px; color:white;">NAME</div>							
                             <div style="font-family: 'Open Sans Condensed', sans-serif; font-size:20px; color:white; font-weight:bold;">E-mail</div>						
@@ -160,3 +177,9 @@
 
     </body>
     </html>
+
+ <?php 
+
+}
+
+?>

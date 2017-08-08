@@ -19,11 +19,11 @@ $(document).ready(function(){
 
       success: function(message) {
         // Success message
-        $('#register_submit').html(message);
+        $('#response_msg').html(message);
 
       },
       error: function() {
-        $('#register_submit').html("Error");
+        $('#response_msg').html("Error");
       },
     });
   });
@@ -38,13 +38,13 @@ $(document).ready(function(){
       data: data,
 
       beforeSend: function(){
-        $('#login_submit').html("Signing in");
+        $('#response_msg').html("Signing in");
        // $('#loader_reg').show();
       },
 
       success: function(message) {
         // Success message
-        $('#login_submit').html(message);
+        $('#response_msg').html(message);
         if( message == "Success"){
           console.log("Bichl");
           window.location.replace("/login_success.php");
@@ -53,7 +53,7 @@ $(document).ready(function(){
         
       },
       error: function() {
-        $('#login_submit').html("Error");
+        $('#response_msg').html("Error");
       },
     });
   });

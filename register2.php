@@ -79,21 +79,24 @@ if($error){
 	echo $error_msg;
 }	
 else {
-	$random = substr(md5(rand()), 0, 7);
-	$hash = md5(rand(0,1000));
-	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-	$pass = hash('sha256',$password);
-	$query = "INSERT into `users-test` (fname,lname,email,password,uniqueid,hash) VALUES ('$fname','$lname','$email','$pass','$random','$hash')";
+	$query = "SELECT email from `users-test` WHERE email='".$email."'";
 	$result = mysqli_query($con,$query);
-	if($result){
-		echo "Registered successfully";
+	$row = mysqli_fetch_row($result);
+	if( $row[0] == $email ){
+		echo "Already registered";
+		exit;
 	}
-
-	
+	else {
+		$random = substr(md5(rand()), 0, 7);
+		$hash = md5(rand(0,1000));
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+		$pass = hash('sha256',$password);
+		$query = "INSERT into `users-test` (fname,lname,email,password,uniqueid,hash) VALUES ('$fname','$lname','$email','$pass','$random','$hash')";
+		$result = mysqli_query($con,$query);
+		if($result){
+			echo "Verify your account by clicking on the link sent to your mail";
+		}
+	}
 	//require('mail.php');
-	
 }
-
-
-
 ?>

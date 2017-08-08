@@ -26,10 +26,16 @@ else {
 	$row = mysqli_fetch_row($result);
 	mysqli_close($con);
 	if( hash('sha256',$password) == $row[0]){
-		echo "Success";
-		$_SESSION['u']=$_POST['username'];
-		$_SESSION['p']=md5($password);
-		exit; 
+		if($row[1] == '0'){
+			echo "Your account is not verified";
+			exit;
+		}
+		else {
+			echo "Success";
+			$_SESSION['u']=$_POST['username'];
+			$_SESSION['p']=md5($password);
+			exit; 			
+		}
 	}
 	else {
 		echo "Password is wrong";
