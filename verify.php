@@ -17,7 +17,7 @@
 		if($rowcount){
 				// We have a match, activate the account
 				mysqli_query($con,"UPDATE `users-test` SET verify='1' WHERE uniqueid='".$id."' AND hash='".$hash."' AND verify='0'") or die(mysql_error());
-				echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
+				echo '<div class="statusmsg">Your account has been activated, you can now <a href="html/login.html">login</a></div>';
 		}		
 	}
 	else {
